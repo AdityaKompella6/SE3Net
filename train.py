@@ -11,7 +11,7 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,num_epochs,5e-6
 loss_fn = torch.nn.MSELoss()
 action = torch.randn((1,5)).to("cuda")
 ##Inputs
-depth_img = np.array(Image.open("hope_video_scene_0009/0000_depth.png"))
+depth_img = np.array(Image.open("0000_depth.png"))
 f = open("hope_video_scene_0009/0000.json")
 data = json.load(f)
 extrinsic_matrix = np.array(data["camera"]['extrinsics'])
@@ -19,7 +19,7 @@ intrinsic_matrix = np.array(data["camera"]['intrinsics'])
 inputs = convert_depth_image_to_point_cloud(depth_img,intrinsic_matrix,extrinsic_matrix)
 inputs = resize_point_cloud(inputs)
 ##Outputs
-depth_img = np.array(Image.open("hope_video_scene_0009/0009_depth.png"))
+depth_img = np.array(Image.open("0009_depth.png"))
 f = open("hope_video_scene_0009/0009.json")
 data = json.load(f)
 extrinsic_matrix = np.array(data["camera"]['extrinsics'])
